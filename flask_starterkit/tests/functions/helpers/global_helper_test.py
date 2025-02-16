@@ -1,5 +1,6 @@
-from flask_starterkit.main.helpers import super_complex_function
 import unittest
+from flask_starterkit.main.helpers import super_complex_function
+
 
 
 class TestAuthRoutes(unittest.TestCase):

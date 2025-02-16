@@ -1,4 +1,3 @@
-
 import unittest
 from dotenv import load_dotenv
 from flask_starterkit.main.config import create_app
