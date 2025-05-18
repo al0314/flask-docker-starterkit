@@ -19,7 +19,10 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        p
+        python -m pip install pylint
+        python -m pip install -r requirements.txt
+
+        
     - name: Analysing the code with pylint
       run: |
         pylint ./flask_starterkit
