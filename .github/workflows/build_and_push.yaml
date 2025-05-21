@@ -21,8 +21,9 @@ jobs:
           password: ${{secrets.DOCKER_PASSWORD}}
 
       - name: Build docker image
-        run : |
+        env: 
           IMAGE_TAG: ${{ github.ref_name }}
+        run : |
           docker build -t al0314/flask-docker-starterkit:$IMAGE_TAG .
       - name: Push docker images into hub
         run: |
