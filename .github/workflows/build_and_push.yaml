@@ -6,6 +6,9 @@ on:
         tags: 
         - 'v*.*.*'
 
+env:
+  IMAGE_TAG: ${{ github.ref_name }}
+
 jobs:
   Build_and_push:
       runs-on: ubuntu-latest
@@ -21,10 +24,8 @@ jobs:
           password: ${{secrets.DOCKER_PASSWORD}}
 
       - name: Build docker image
-        env: 
-          IMAGE_TAG: ${{ github.ref_name }}
         run : |
-          docker build -t al0314/flask-docker-starterkit:$IMAGE_TAG .
+          docker build -t al0314/flask-docker-starterkit:${{ env.IMAGE_TAG }} .
       - name: Push docker images into hub
         run: |
-          docker push al0314/flask-docker-starterkit:$IMAGE_TAG  
+          docker push al0314/flask-docker-starterkit:${{ env.IMAGE_TAG }} 
